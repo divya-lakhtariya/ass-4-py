@@ -1,0 +1,71 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+      <div class="container-fluid">
+        
+      </div>
+    <!-- end header section --> 
+  </div>
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2 style="margin: 100px 0 0 0;">LOGIN</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="form_container">
+            {% if msg %}
+            <center>
+              <b style="color: white;">{{msg}}</b>
+            </center>
+            {% endif %}
+            <form action="{% url 'login' %}" method="Post" >
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="email" class="form-control" name="email" placeholder="your email">
+                  <span id="email_error"></span>
+                </div>
+              </div>
+
+              
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="password" class="form-control" name="password" placeholder="your password">
+                </div>
+              </div> 
+
+             
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="site-btn" style="margin: 0 40px 60px 0;">LOGIN</button>
+                <a href="{% url 'forgot-password' %}"> <button type="button" style="margin: 0 70px 0 0;" class="site-btn">Forgot Password</button></a>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      
+  </section>
+
+  <!-- end contact section -->
+
+  
+
+</body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+      <div class="container-fluid">
+        
+      </div>
+    <!-- end header section --> 
+  </div>
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2 style="margin: 100px 0 0 0;">Verify OTP</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="form_container">
+            {% if msg %}
+            <center>
+              <b style="color: white;">{{msg}}</b>
+            </center>
+            {% endif %}
+            <form action="{% url 'verify-otp' %}" method="Post" >
+              {% csrf_token %}
+              <div class="form-row">
+                <input type="hidden" name="mobile" value="{{mobile}}">
+                <input type="hidden" name="otp" value="{{otp}}">
+                <div class="form-group col">
+                  <input type="text" class="form-control" name="uotp" placeholder="your OTP">
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="site-btn" style="margin: 0 60px 130px 0;">Verify OTP</button>
+                
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      
+  </section>
+
+  <!-- end contact section -->
+
+  
+
+</body>
+
+</html>
+{% endblock %}

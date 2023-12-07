@@ -1,0 +1,105 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+      <div class="container-fluid">
+        
+      </div>
+    <!-- end header section --> 
+  </div>
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>SIGNUP</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="form_container">
+            {% if msg %}
+              <center>
+                <b style="color: white;">{{msg}}</b>
+              </center>
+            {% endif %}
+            <form action="{% url 'signup' %}" method="Post" >
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="form-group col">
+                  <select name="usertype">
+                    <option>--select User type---</option>
+                    <option  value="rider">Rider</option>
+                    <option  value="driver">Driver</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="text" class="form-control" name="fname" placeholder="your first name ">
+                </div>
+              </div>
+                <div class="form-row">
+                <div class="form-group col">
+                  <input type="text" class="form-control" name="lname" placeholder="your last name">
+                </div>
+              </div>
+              
+
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="email" class="form-control" name="email" placeholder="your email">
+                  <span id="email_error"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="text" class="form-control" name="mobile" placeholder="your mobile ">
+                </div>
+              </div>  
+
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="password" class="form-control" name="password" placeholder="your password">
+                </div>
+              </div> 
+
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="password" class="form-control" name="cpassword" placeholder="your confriom password">
+                </div>
+              </div> 
+
+              <div class=" form-group  text-center">
+                <textarea type="text" class="form-control" name="address" placeholder="Address"></textarea>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="">SIGNUP</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      
+  </section>
+
+  <!-- end contact section -->
+
+  
+
+</body>
+
+</html>
+{% endblock %}
